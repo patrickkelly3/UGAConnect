@@ -1,3 +1,4 @@
+"use client";
 import Nav from "./components/Nav";
 import Menu from "./components/Menu";
 import Content from "./components/Content"
