@@ -9,11 +9,17 @@ type Class = {
 }
 interface ClassProps {
     class: Class;
+    click: (now: Class) => void;
 }
 
 export default function Item(props: ClassProps) {
+    let handler = () => {
+        props.click(props.class);
+    }
+
     return(
-        <Link className={styles.link} href={"/"}>{props.class.name}</Link>
+        
+        <button onClick={handler}>{props.class.name}</button>
     );
 
 }

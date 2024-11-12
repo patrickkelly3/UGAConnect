@@ -33,7 +33,11 @@ const DUMMY: Class[] = [
     },
 ]
 
-export default function Menu() {
+interface MenuProps {
+    onClick: (now: Class)=> void;
+}
+
+export default function Menu(props: MenuProps) {
     const[isClicked, changeClick] = useState<Boolean>(false);
 
     const click = () => {
@@ -45,7 +49,7 @@ export default function Menu() {
             <div className={styles.clicked}>
                 <FaBars className={styles.icon} onClick={click}/>
                 <ul className={styles.classList}>
-                    {DUMMY.map((current, i) => <li><Item class={current}></Item></li>)}
+                    {DUMMY.map((current, i) => <li><Item class={current} click={props.onClick}></Item></li>)}
                     <li><Link className={styles.link} href={"/"}>+ Add New Class</Link></li>
                 </ul>    
             </div>
